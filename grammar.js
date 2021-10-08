@@ -13,9 +13,14 @@ module.exports = grammar({
                          repeat(seq('or',
                                     $.conjunction))), 
 
-      conjunction: $ => seq($.primaryHelper,
-                            repeat(seq('and',
-                                       $.primaryHelper))),
+      conjunction: $ => choice(seq($.primaryHelper,
+                               repeat(seq('and',
+                                           $.primaryHelper))),
+                               seq($.classIRI,
+                                   'that',
+                                   $.restrictionHelper,
+                                   repeat(seq('and',
+                                               $.restrictionHelper)))),
 
 
       restriction: $ => choice($.objectPropertyExistential,
@@ -39,9 +44,7 @@ module.exports = grammar({
                                           $.primaryHelper),
 
       objectPropertySelf: $ => seq($.objectPropertyExpression,
-                                          'Self'),
-      //self: $ => 'Self',
-
+                                          'Self'), 
 
       objectMinCardinality: $ => choice($.qualifiedObjectMinCardinality,
                                         $.unqualifiedObjectMinCardinality),
@@ -79,6 +82,11 @@ module.exports = grammar({
                                               'exactly',
                                               $.nonNegativeInteger),
 
+      restrictionHelper: $ => choice($.restriction,
+                                     $.restrictionNegation),
+      restrictionNegation: $ => seq('not',
+                                    $.restriction),
+
       primaryHelper: $ => choice($.primary,
                             $.primaryNegation),
 
@@ -91,12 +99,19 @@ module.exports = grammar({
       atomic: $ => choice($.classIRI,
                              seq('(',
                                  $.description,
-                                 ')')),
+                                 ')'),
+                              seq('{',
+                                  $.individual,
+                                  repeat(seq(',',
+                                             $.individual)),
+                                  '}')),
 
       objectPropertyExpression: $ => $.IRI,
 
+
       //classIRI: $ => /[a-zA-Z:_0-9]+/,
       classIRI: $ => $.IRI,
+      individual: $ => $.IRI,
 
       IRI: $ => /[A-Za-z0-9:_]+/,
 
