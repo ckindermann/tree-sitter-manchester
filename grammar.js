@@ -7,7 +7,33 @@ module.exports = grammar({
 
   rules: {
 
-      expression: $ => $.description,
+      expression: $ => $.classExpressionAxiom,
+
+      classExpressionAxiom: $ => choice($.subClassOf,
+                                        $.equivalentTo,
+                                        $.disjointWith,
+                                        $.disjointUnionOf),
+       
+      subClassOf: $ => seq($.classIRI,
+                           'SubClassOf', 
+                           $.description),
+
+      equivalentTo: $ => seq($.classIRI,
+                           'EquivalentTo', 
+                           $.description),
+
+      disjointWith: $ => seq($.classIRI,
+                           'DisjointWith', 
+                           $.description),
+
+      disjointUnionOf: $ => seq($.classIRI,
+                                'DisjointUnionOf',
+                                '{',
+                                $.description,
+                                repeat1(seq(',',
+                                           $.description)),
+                                '}'), 
+
 
       description: $ => seq($.conjunction,
                          repeat(seq('or',
@@ -82,6 +108,7 @@ module.exports = grammar({
                                               'exactly',
                                               $.nonNegativeInteger),
 
+      //TODO: add tree transduction rules
       restrictionHelper: $ => choice($.restriction,
                                      $.restrictionNegation),
       restrictionNegation: $ => seq('not',
