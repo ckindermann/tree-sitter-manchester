@@ -7,9 +7,9 @@ module.exports = grammar({
 
   rules: {
 
-    expression: $ => $.description,
+      expression: $ => $.description,
 
-     description: $ => seq($.conjunction,
+      description: $ => seq($.conjunction,
                          repeat(seq('or',
                                     $.conjunction))), 
 
@@ -21,7 +21,10 @@ module.exports = grammar({
       restriction: $ => choice($.objectPropertyExistential,
                                $.objectPropertyUniversal,
                                $.objectPropertyValue,
-                               $.objectPropertySelf),
+                               $.objectPropertySelf,
+                               $.objectMinCardinality,
+                               $.objectMaxCardinality,
+                               $.objectExactCardinality),
 
       objectPropertyExistential: $ => seq($.objectPropertyExpression,
                                           'some',
@@ -37,23 +40,67 @@ module.exports = grammar({
 
       objectPropertySelf: $ => seq($.objectPropertyExpression,
                                           'Self'),
+      //self: $ => 'Self',
 
+
+      objectMinCardinality: $ => choice($.qualifiedObjectMinCardinality,
+                                        $.unqualifiedObjectMinCardinality),
+
+      qualifiedObjectMinCardinality: $ => seq($.objectPropertyExpression,
+                                              'min',
+                                              $.nonNegativeInteger,
+                                              $.primary),
+
+      unqualifiedObjectMinCardinality: $ => seq($.objectPropertyExpression,
+                                              'min',
+                                              $.nonNegativeInteger),
+
+      objectMaxCardinality: $ => choice($.qualifiedObjectMaxCardinality,
+                                        $.unqualifiedObjectMaxCardinality),
+
+      qualifiedObjectMaxCardinality: $ => seq($.objectPropertyExpression,
+                                              'max',
+                                              $.nonNegativeInteger,
+                                              $.primary),
+
+      unqualifiedObjectMaxCardinality: $ => seq($.objectPropertyExpression,
+                                              'max',
+                                              $.nonNegativeInteger),
+
+      objectExactCardinality: $ => choice($.qualifiedObjectExactCardinality,
+                                        $.unqualifiedObjectExactCardinality),
+
+      qualifiedObjectExactCardinality: $ => seq($.objectPropertyExpression,
+                                              'exactly',
+                                              $.nonNegativeInteger,
+                                              $.primary),
+
+      unqualifiedObjectExactCardinality: $ => seq($.objectPropertyExpression,
+                                              'exactly',
+                                              $.nonNegativeInteger),
 
       primaryHelper: $ => choice($.primary,
                             $.primaryNegation),
 
-      primary: $ => seq(choice($.restriction,
-                               $.atomic)), 
+      primary: $ => seq(choice($.atomic,
+                               $.restriction)), 
 
       primaryNegation: $ => seq('not',
                                 $.primary),
 
-      atomic: $ => choice(/[a-z]+/,
+      atomic: $ => choice($.classIRI,
                              seq('(',
                                  $.description,
                                  ')')),
 
-      objectPropertyExpression: $ => /[a-z]+/,
+      objectPropertyExpression: $ => $.IRI,
+
+      //classIRI: $ => /[a-zA-Z:_0-9]+/,
+      classIRI: $ => $.IRI,
+
+      IRI: $ => /[A-Za-z0-9:_]+/,
+
+      nonNegativeInteger: $ => /[0-9]+/, //TODO: numbers seem to break the parser - so maybe
 
   }
 });
