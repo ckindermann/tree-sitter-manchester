@@ -108,7 +108,6 @@ module.exports = grammar({
                                               'exactly',
                                               $.nonNegativeInteger),
 
-      //TODO: add tree transduction rules
       restrictionHelper: $ => choice($.restriction,
                                      $.restrictionNegation),
       restrictionNegation: $ => seq('not',
@@ -135,14 +134,12 @@ module.exports = grammar({
 
       objectPropertyExpression: $ => $.IRI,
 
-
-      //classIRI: $ => /[a-zA-Z:_0-9]+/,
       classIRI: $ => $.IRI,
       individual: $ => $.IRI,
 
       IRI: $ => /[A-Za-z0-9:_]+/,
 
-      nonNegativeInteger: $ => /[0-9]+/, //TODO: numbers seem to break the parser - so maybe
+      nonNegativeInteger: $ => /[0-9]+/, 
 
   }
 });
