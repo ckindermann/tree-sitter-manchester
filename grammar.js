@@ -141,7 +141,7 @@ module.exports = grammar({
                                             $.inverseObjectProperty),
 
       inverseObjectProperty: $ => seq('inverse',
-                                      $.IRI),
+                                      $.objectPropertyExpression),
 
       classIRI: $ => $.IRI,
       individual: $ => $.IRI,
