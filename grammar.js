@@ -9,11 +9,12 @@ module.exports = grammar({
 
       expression: $ => $.classExpressionAxiom,
 
+      //class expression axioms
       classExpressionAxiom: $ => choice($.subClassOf,
                                         $.equivalentTo,
                                         $.disjointWith,
                                         $.disjointUnionOf),
-       
+
       subClassOf: $ => seq($.classIRI,
                            'SubClassOf:', 
                            $.description),
@@ -37,6 +38,7 @@ module.exports = grammar({
                                            $.description))), 
 
 
+      //class expression
       description: $ => seq($.conjunction,
                          repeat(seq('or',
                                     $.conjunction))), 
@@ -134,6 +136,7 @@ module.exports = grammar({
                                              $.individual)),
                                   '}')),
 
+      //IRIs and terminals
       objectPropertyExpression: $ => $.IRI,
 
       classIRI: $ => $.IRI,
