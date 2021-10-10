@@ -15,24 +15,26 @@ module.exports = grammar({
                                         $.disjointUnionOf),
        
       subClassOf: $ => seq($.classIRI,
-                           'SubClassOf', 
+                           'SubClassOf:', 
                            $.description),
 
       equivalentTo: $ => seq($.classIRI,
-                           'EquivalentTo', 
-                           $.description),
+                           'EquivalentTo:', 
+                           $.description, 
+                           repeat(seq(',',
+                                       $.description))), 
 
       disjointWith: $ => seq($.classIRI,
-                           'DisjointWith', 
-                           $.description),
+                           'DisjointWith:', 
+                           $.description, 
+                           repeat(seq(',',
+                                       $.description))), 
 
       disjointUnionOf: $ => seq($.classIRI,
-                                'DisjointUnionOf',
-                                '{',
+                                'DisjointUnionOf:',
                                 $.description,
                                 repeat1(seq(',',
-                                           $.description)),
-                                '}'), 
+                                           $.description))), 
 
 
       description: $ => seq($.conjunction,
