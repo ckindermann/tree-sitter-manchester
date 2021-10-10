@@ -137,7 +137,11 @@ module.exports = grammar({
                                   '}')),
 
       //IRIs and terminals
-      objectPropertyExpression: $ => $.IRI,
+      objectPropertyExpression: $ => choice($.IRI,
+                                            $.inverseObjectProperty),
+
+      inverseObjectProperty: $ => seq('inverse',
+                                      $.IRI),
 
       classIRI: $ => $.IRI,
       individual: $ => $.IRI,
