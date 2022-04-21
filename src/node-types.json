@@ -1,0 +1,718 @@
+[
+  {
+    "type": "atomic",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "classIRI",
+          "named": true
+        },
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "individual",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "classExpressionAxiom",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "disjointUnionOf",
+          "named": true
+        },
+        {
+          "type": "disjointWith",
+          "named": true
+        },
+        {
+          "type": "equivalentTo",
+          "named": true
+        },
+        {
+          "type": "subClassOf",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "classIRI",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "IRI",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "conjunction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "classIRI",
+          "named": true
+        },
+        {
+          "type": "primaryHelper",
+          "named": true
+        },
+        {
+          "type": "restrictionHelper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "description",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "conjunction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "disjointUnionOf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "classIRI",
+          "named": true
+        },
+        {
+          "type": "description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "disjointWith",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "classIRI",
+          "named": true
+        },
+        {
+          "type": "description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "equivalentTo",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "classIRI",
+          "named": true
+        },
+        {
+          "type": "description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "classExpressionAxiom",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "individual",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "IRI",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "inverseObjectProperty",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectExactCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "qualifiedObjectExactCardinality",
+          "named": true
+        },
+        {
+          "type": "unqualifiedObjectExactCardinality",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectMaxCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "qualifiedObjectMaxCardinality",
+          "named": true
+        },
+        {
+          "type": "unqualifiedObjectMaxCardinality",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectMinCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "qualifiedObjectMinCardinality",
+          "named": true
+        },
+        {
+          "type": "unqualifiedObjectMinCardinality",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectPropertyExistential",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        },
+        {
+          "type": "primaryHelper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectPropertyExpression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "IRI",
+          "named": true
+        },
+        {
+          "type": "inverseObjectProperty",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectPropertySelf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectPropertyUniversal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        },
+        {
+          "type": "primaryHelper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "objectPropertyValue",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        },
+        {
+          "type": "primaryHelper",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "primary",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic",
+          "named": true
+        },
+        {
+          "type": "restriction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "primaryHelper",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "primary",
+          "named": true
+        },
+        {
+          "type": "primaryNegation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "primaryNegation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "primary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "qualifiedObjectExactCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nonNegativeInteger",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        },
+        {
+          "type": "primary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "qualifiedObjectMaxCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nonNegativeInteger",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        },
+        {
+          "type": "primary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "qualifiedObjectMinCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nonNegativeInteger",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        },
+        {
+          "type": "primary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "restriction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "objectExactCardinality",
+          "named": true
+        },
+        {
+          "type": "objectMaxCardinality",
+          "named": true
+        },
+        {
+          "type": "objectMinCardinality",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExistential",
+          "named": true
+        },
+        {
+          "type": "objectPropertySelf",
+          "named": true
+        },
+        {
+          "type": "objectPropertyUniversal",
+          "named": true
+        },
+        {
+          "type": "objectPropertyValue",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "restrictionHelper",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "restriction",
+          "named": true
+        },
+        {
+          "type": "restrictionNegation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "restrictionNegation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "restriction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subClassOf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "classIRI",
+          "named": true
+        },
+        {
+          "type": "description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unqualifiedObjectExactCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nonNegativeInteger",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unqualifiedObjectMaxCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nonNegativeInteger",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unqualifiedObjectMinCardinality",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nonNegativeInteger",
+          "named": true
+        },
+        {
+          "type": "objectPropertyExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "DisjointUnionOf:",
+    "named": false
+  },
+  {
+    "type": "DisjointWith:",
+    "named": false
+  },
+  {
+    "type": "EquivalentTo:",
+    "named": false
+  },
+  {
+    "type": "IRI",
+    "named": true
+  },
+  {
+    "type": "Self",
+    "named": false
+  },
+  {
+    "type": "SubClassOf:",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "exactly",
+    "named": false
+  },
+  {
+    "type": "inverse",
+    "named": false
+  },
+  {
+    "type": "max",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
+  },
+  {
+    "type": "nonNegativeInteger",
+    "named": true
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "only",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "some",
+    "named": false
+  },
+  {
+    "type": "that",
+    "named": false
+  },
+  {
+    "type": "value",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

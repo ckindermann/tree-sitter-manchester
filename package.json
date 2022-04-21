@@ -1,0 +1,39 @@
+{
+  "name": "tree-sitter-manchester",
+  "version": "1.0.0",
+  "description": "Parser for OWL Manchester Syntax",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckindermann/tree-sitter-manchester.git"
+  },
+  "keywords": [
+    "OWL",
+    "parser"
+  ],
+  "author": "Christian Kindermann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ckindermann/tree-sitter-manchester/issues"
+  },
+  "homepage": "https://github.com/ckindermann/tree-sitter-manchester#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  },
+  "tree-sitter": [
+    {
+      "scope":"source.manchester",
+      "file-types": [
+        "man"
+      ],
+      "highlights":"queries/highlights.scm",
+      "injection-regex":"mans"
+    }
+  ]
+}

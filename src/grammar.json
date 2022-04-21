@@ -1,0 +1,667 @@
+{
+  "name": "manchester",
+  "rules": {
+    "expression": {
+      "type": "SYMBOL",
+      "name": "classExpressionAxiom"
+    },
+    "classExpressionAxiom": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "subClassOf"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "equivalentTo"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "disjointWith"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "disjointUnionOf"
+        }
+      ]
+    },
+    "subClassOf": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "classIRI"
+        },
+        {
+          "type": "STRING",
+          "value": "SubClassOf:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "description"
+        }
+      ]
+    },
+    "equivalentTo": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "classIRI"
+        },
+        {
+          "type": "STRING",
+          "value": "EquivalentTo:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "description"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "description"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "disjointWith": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "classIRI"
+        },
+        {
+          "type": "STRING",
+          "value": "DisjointWith:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "description"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "description"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "disjointUnionOf": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "classIRI"
+        },
+        {
+          "type": "STRING",
+          "value": "DisjointUnionOf:"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "description"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "description"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "description": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "conjunction"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "or"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "conjunction"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "conjunction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "primaryHelper"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "and"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "primaryHelper"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "classIRI"
+            },
+            {
+              "type": "STRING",
+              "value": "that"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "restrictionHelper"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "and"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "restrictionHelper"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "restriction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExistential"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyUniversal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyValue"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertySelf"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectMinCardinality"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectMaxCardinality"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectExactCardinality"
+        }
+      ]
+    },
+    "objectPropertyExistential": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "some"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primaryHelper"
+        }
+      ]
+    },
+    "objectPropertyUniversal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "only"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primaryHelper"
+        }
+      ]
+    },
+    "objectPropertyValue": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "value"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primaryHelper"
+        }
+      ]
+    },
+    "objectPropertySelf": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "Self"
+        }
+      ]
+    },
+    "objectMinCardinality": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "qualifiedObjectMinCardinality"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unqualifiedObjectMinCardinality"
+        }
+      ]
+    },
+    "qualifiedObjectMinCardinality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonNegativeInteger"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primary"
+        }
+      ]
+    },
+    "unqualifiedObjectMinCardinality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonNegativeInteger"
+        }
+      ]
+    },
+    "objectMaxCardinality": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "qualifiedObjectMaxCardinality"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unqualifiedObjectMaxCardinality"
+        }
+      ]
+    },
+    "qualifiedObjectMaxCardinality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "max"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonNegativeInteger"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primary"
+        }
+      ]
+    },
+    "unqualifiedObjectMaxCardinality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "max"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonNegativeInteger"
+        }
+      ]
+    },
+    "objectExactCardinality": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "qualifiedObjectExactCardinality"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unqualifiedObjectExactCardinality"
+        }
+      ]
+    },
+    "qualifiedObjectExactCardinality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "exactly"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonNegativeInteger"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primary"
+        }
+      ]
+    },
+    "unqualifiedObjectExactCardinality": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        },
+        {
+          "type": "STRING",
+          "value": "exactly"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonNegativeInteger"
+        }
+      ]
+    },
+    "restrictionHelper": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "restriction"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "restrictionNegation"
+        }
+      ]
+    },
+    "restrictionNegation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "restriction"
+        }
+      ]
+    },
+    "primaryHelper": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "primary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primaryNegation"
+        }
+      ]
+    },
+    "primary": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "atomic"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "restriction"
+            }
+          ]
+        }
+      ]
+    },
+    "primaryNegation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "not"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "primary"
+        }
+      ]
+    },
+    "atomic": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "classIRI"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "description"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "individual"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "individual"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
+        }
+      ]
+    },
+    "objectPropertyExpression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "IRI"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "inverseObjectProperty"
+        }
+      ]
+    },
+    "inverseObjectProperty": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "inverse"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "objectPropertyExpression"
+        }
+      ]
+    },
+    "classIRI": {
+      "type": "SYMBOL",
+      "name": "IRI"
+    },
+    "individual": {
+      "type": "SYMBOL",
+      "name": "IRI"
+    },
+    "IRI": {
+      "type": "PATTERN",
+      "value": "[A-Za-z0-9:_]+"
+    },
+    "nonNegativeInteger": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
