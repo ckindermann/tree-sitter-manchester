@@ -14,7 +14,7 @@
  "not"
  "and"
  "or"
- ] @turquise
+ ] @turquois
 
 [
  "inverse"
@@ -26,5 +26,8 @@
  ] @white
 
 (IRI) @gray
+
+(LABEL) @type
+
 
 (nonNegativeInteger) @number

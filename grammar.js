@@ -146,7 +146,16 @@ module.exports = grammar({
       classIRI: $ => $.IRI,
       individual: $ => $.IRI,
 
-      IRI: $ => /[A-Za-z0-9:_]+/,
+      IRI: $ => choice($.URI,
+                       $.LABEL),
+      
+      URI: $ => /[A-Za-z0-9:_]+/,//is this enough?
+
+      LABEL: $ => seq("'",
+                      $.STRING,
+                      token.immediate("'")), 
+
+      STRING: $ => token.immediate(/[A-Za-z0-9:_]+/),
 
       nonNegativeInteger: $ => /[0-9]+/, 
 

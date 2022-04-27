@@ -644,8 +644,48 @@
       "name": "IRI"
     },
     "IRI": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "URI"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LABEL"
+        }
+      ]
+    },
+    "URI": {
       "type": "PATTERN",
       "value": "[A-Za-z0-9:_]+"
+    },
+    "LABEL": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "STRING"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "'"
+          }
+        }
+      ]
+    },
+    "STRING": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[A-Za-z0-9:_]+"
+      }
     },
     "nonNegativeInteger": {
       "type": "PATTERN",

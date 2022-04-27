@@ -1,5 +1,39 @@
 [
   {
+    "type": "IRI",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "LABEL",
+          "named": true
+        },
+        {
+          "type": "URI",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "LABEL",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "atomic",
     "named": true,
     "fields": {},
@@ -624,6 +658,10 @@
     }
   },
   {
+    "type": "'",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -648,7 +686,7 @@
     "named": false
   },
   {
-    "type": "IRI",
+    "type": "STRING",
     "named": true
   },
   {
@@ -658,6 +696,10 @@
   {
     "type": "SubClassOf:",
     "named": false
+  },
+  {
+    "type": "URI",
+    "named": true
   },
   {
     "type": "and",
