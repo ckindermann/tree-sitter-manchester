@@ -25,9 +25,9 @@
  ")"
  ] @white
 
-(IRI) @gray
-
+(CURIE) @gray 
 (LABEL) @type
+(URI) @red
 
 
 (nonNegativeInteger) @number

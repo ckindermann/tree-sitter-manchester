@@ -147,13 +147,18 @@ module.exports = grammar({
       individual: $ => $.IRI,
 
       IRI: $ => choice($.URI,
+                       $.CURIE,
                        $.LABEL),
       
-      URI: $ => /[A-Za-z0-9:_]+/,//is this enough?
+      URI: $ => seq("<",
+                    $.STRING,
+                    token.immediate(">")),
 
       LABEL: $ => seq("'",
                       $.STRING,
                       token.immediate("'")), 
+
+      CURIE: $ => /[A-Za-z0-9:_]+/,//TODO: require colon
 
       STRING: $ => token.immediate(/[A-Za-z0-9:_]+/),
 

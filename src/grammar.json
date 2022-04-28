@@ -652,13 +652,33 @@
         },
         {
           "type": "SYMBOL",
+          "name": "CURIE"
+        },
+        {
+          "type": "SYMBOL",
           "name": "LABEL"
         }
       ]
     },
     "URI": {
-      "type": "PATTERN",
-      "value": "[A-Za-z0-9:_]+"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "STRING"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ">"
+          }
+        }
+      ]
     },
     "LABEL": {
       "type": "SEQ",
@@ -679,6 +699,10 @@
           }
         }
       ]
+    },
+    "CURIE": {
+      "type": "PATTERN",
+      "value": "[A-Za-z0-9:_]+"
     },
     "STRING": {
       "type": "IMMEDIATE_TOKEN",
