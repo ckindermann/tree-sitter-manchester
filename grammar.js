@@ -7,9 +7,9 @@ module.exports = grammar({
 
   rules: {
 
-      expression: $ => $.classExpressionAxiom,
+      expression: $ => choice($.classExpressionAxiom,
+                              $.description), //allow for parsing of expressions that are not axioms
 
-      //class expression axioms
       classExpressionAxiom: $ => choice($.subClassOf,
                                         $.equivalentTo,
                                         $.disjointWith,
@@ -36,7 +36,6 @@ module.exports = grammar({
                                 $.description,
                                 repeat1(seq(',',
                                            $.description))), 
-
 
       //class expression
       description: $ => seq($.conjunction,
@@ -136,7 +135,6 @@ module.exports = grammar({
                                              $.individual)),
                                   '}')),
 
-      //IRIs and terminals
       objectPropertyExpression: $ => choice($.IRI,
                                             $.inverseObjectProperty),
 

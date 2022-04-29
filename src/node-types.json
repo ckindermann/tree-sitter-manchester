@@ -223,6 +223,10 @@
         {
           "type": "classExpressionAxiom",
           "named": true
+        },
+        {
+          "type": "description",
+          "named": true
         }
       ]
     }
